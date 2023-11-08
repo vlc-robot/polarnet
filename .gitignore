@@ -1,0 +1,13 @@
+__pycache__
+.idea
+*.pyc
+__pycache__/
+core-python-*
+bug-report-*
+
+data
+notebooks
+slurm_logs
+
+*.lock
+.~lock.*

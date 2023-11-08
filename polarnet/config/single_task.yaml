@@ -1,0 +1,123 @@
+SEED: 2023
+output_dir: 'exprs/pcd_unet/10tasks+0-attn_dec-no.normal-prev.act-c64-ntrans.2-init.enc.dec-t1m'
+checkpoint: null
+checkpoint: data/pretrained_models/pointnext-s-c64-enc-dec-sameshape.pt
+checkpoint_strict_load: false # true, false
+resume_training: true
+
+train_batch_size: 8
+gradient_accumulation_steps: 1
+num_epochs: null
+num_train_steps: 100000 # 100k for single-task, 200k for 10tasks, 1M for 74tasks, 600k for peract
+warmup_steps: 2000
+log_steps: 1000
+save_steps: 5000
+
+optim: 'adamw'
+learning_rate: 5e-4
+lr_sched: 'linear' # inverse_sqrt, linear
+betas: [0.9, 0.98]
+weight_decay: 0.001
+grad_norm: 5
+n_workers: 0
+pin_mem: True
+
+DATASET:
+  dataset_class: 'pre_pcd_keystep_stepwise' # pre_pcd_keystep_stepwise
+
+  voxel_size: 0.01  # null, 0.01, 0.005
+  npoints: 2048
+  use_color: True
+  use_normal: False
+  use_height: True
+  color_drop: 0.0
+  only_success: False
+  multi_instruction: True
+
+  max_steps_per_episode: 12
+
+  use_discrete_rot: False
+  rot_resolution: 5 # degrees
+
+  aug_shift_pcd: 0.0
+  aug_rotate_pcd: 0.0
+
+  add_pcd_noises: False
+  pcd_noises_std: 0.01
+  remove_pcd_outliers: False
+  real_robot: False
+
+  max_demos_per_taskvar: null
+  exclude_overlength_episodes: null
+
+  pc_space: 'workspace_on_table' # none, workspace, workspace_on_table
+  pc_center: 'gripper'  # point, gripper
+  pc_radius_norm: True # true (unit ball), false
+  
+  data_dir: 'data/train_dataset/keysteps_pcd/seed0'
+  taskvars: ('pick_and_lift+0', )
+  instr_embed_file: 'data/train_dataset/taskvar_instrs/clip'
+  use_instr_embed: 'all' # none, avg, last, all
+  cameras: ("left_shoulder", "right_shoulder", "wrist")
+  camera_ids: [0, 1, 2]
+  gripper_channel: False
+  is_training: True
+  in_memory: True
+  num_workers: 0
+
+MODEL:
+  model_class: 'PointCloudUNet'
+
+  use_max_action: False
+  use_discrete_rot: False
+  rot_resolution: 5 # degrees
+
+  heatmap_loss: false
+  heatmap_loss_weight: 1.0
+  heatmap_distance_weight: 1.0
+  use_heatmap_max: false
+  use_pos_loss: true
+
+  num_tasks: 1
+  max_steps: 25
+  dropout: 0.0
+  learnable_step_embedding: false
+  use_prev_action: true
+
+  use_instr_embed: 'all' # none, avg, last, all
+  instr_embed_size: 512
+  txt_attn_type: 'cross' # none, cross
+  num_trans_layers: 2
+  trans_hidden_size: 512
+  cat_global_in_head: False
+
+  heatmap_temp: 0.1
+
+  pcd_encoder_cfg:
+    blocks: [1, 1, 1, 1, 1]
+    strides: [1, 2, 2, 2, 2]
+    width: 64
+    in_channels: 7
+    sa_layers: 3
+    sa_use_res: True
+    radius: 0.05
+    radius_scaling: 2.5
+    nsample: 32
+    expansion: 4
+    aggr_args:
+      feature_type: dp_fj
+    reduction: max
+    group_args:
+      NAME: ballquery
+      normalize_dp: True
+    conv_args:
+      order: conv-norm-act
+    act_args:
+      act: relu
+      inplace: True
+    norm_args:
+      norm: bn
+  
+  pcd_decoder_cfg:
+    layers: 2
+

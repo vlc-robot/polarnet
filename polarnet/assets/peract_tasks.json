@@ -1,0 +1,20 @@
+[
+  "close_jar_peract",
+  "insert_onto_square_peg_peract",
+  "light_bulb_in_peract",
+  "meat_off_grill_peract",
+  "open_drawer_peract",
+  "place_cups_peract",
+  "place_shape_in_shape_sorter_peract",
+  "place_wine_at_rack_location_peract",
+  "push_buttons_peract",
+  "put_groceries_in_cupboard_peract",
+  "put_item_in_drawer_peract",
+  "put_money_in_safe_peract",
+  "reach_and_drag_peract",
+  "slide_block_to_color_target_peract",
+  "stack_blocks_peract",
+  "stack_cups_peract",
+  "sweep_to_dustpan_of_size_peract",
+  "turn_tap_peract"
+]

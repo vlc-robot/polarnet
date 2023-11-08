@@ -1,0 +1,3 @@
+[submodule "openpoints"]
+	path = openpoints
+	url = https://github.com/guochengqian/openpoints/
