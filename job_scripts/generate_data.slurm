@@ -93,15 +93,4 @@ singularity exec \
     --keystep_data_dir $data_dir/train/keysteps/seed${seed} \
     --image_size $img_size $img_size \
     --tasks ${task} --headless 
-
-# generate preprocessed keysteps
-srun --export=ALL,XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR \
-singularity exec \
-	--bind $WORK:$WORK,$SCRATCH:$SCRATCH,$STORE:$STORE --nv \
-	$SINGULARITY_ALLOWED_DIR/${image} \
-	xvfb-run -a -e $log_dir/$SLURM_JOBID.err \
-  /usr/bin/python3.9 preprocess/generate_pcd_dataset_keysteps.py \
-    --seed ${seed} \
-    --dataset_dir $data_dir/train/ \
-    --outname $outname
 popd
