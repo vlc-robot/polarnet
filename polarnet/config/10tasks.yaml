@@ -55,7 +55,7 @@ DATASET:
   pc_radius_norm: True # true (unit ball), false
   
   data_dir: 'data/train_dataset/keysteps_pcd/seed0'
-  taskvars: ['assets/10tasks_var.csv']
+  taskvars: ['assets/10_tasks_var.csv']
   instr_embed_file: 'data/train_dataset/taskvar_instrs/clip'
   use_instr_embed: 'all' # none, avg, last, all
   cameras: ("left_shoulder", "right_shoulder", "wrist")
@@ -97,7 +97,7 @@ MODEL:
     blocks: [1, 1, 1, 1, 1]
     strides: [1, 2, 2, 2, 2]
     width: 64
-    in_channels: 7
+    in_channels: 10
     sa_layers: 3
     sa_use_res: True
     radius: 0.05
