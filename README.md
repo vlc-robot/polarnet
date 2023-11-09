@@ -149,6 +149,8 @@ export CUDA_VISIBLE_DEVICES=0
 python -m polarnet.train_models --exp-config config/10tasks.yaml
 ```
 
+You can find PointNeXt pre-trained weights [here](https://drive.google.com/file/d/13qq4QPIlvJF4BwC7zEqG8vj7jcP04DBL/view?usp=drive_link).
+
 ## Evaluation
 
 For slurm users, please use the following command to launch the evaluation script.
