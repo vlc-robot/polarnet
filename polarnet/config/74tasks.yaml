@@ -1,5 +1,5 @@
 SEED: 2023
-output_dir: 'exprs/pcd_unet/74tasks+0-attn_dec-no.normal-prev.act-c64-ntrans.2-init.enc.dec-t1m'
+output_dir: 'exprs/pcd_unet/74tasks'
 checkpoint: null
 checkpoint: data/pretrained_models/pointnext-s-c64-enc-dec-sameshape.pt
 checkpoint_strict_load: false # true, false
@@ -28,7 +28,7 @@ DATASET:
   voxel_size: 0.01  # null, 0.01, 0.005
   npoints: 2048
   use_color: True
-  use_normal: False
+  use_normal: True
   use_height: True
   color_drop: 0.0
   only_success: False
