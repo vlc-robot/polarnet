@@ -12,7 +12,7 @@
 
 1. Installation
 
-Option 1: Use our [pre-build singularity image](https://drive.google.com/file/d/1ybTWLpjMDW4eSL7M2SEBwT-Qk2p_euZd/view?usp=sharing).
+Option 1: Use our [pre-build singularity image](https://drive.google.com/file/d/1i1mNppGWhzEgrQz9G7wP7fb-0iA4mGq4/view?usp=sharing).
 
 Option 2: Install everything from scratch.
 ```bash
