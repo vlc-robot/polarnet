@@ -191,7 +191,13 @@ You can also use in the same manner `summarize_peract_official_tst_results.py` a
 
 ## Pre-trained models
 
-Coming soon...
+You can find a checkpoint for the 10 tasks multi-task setup [here](https://drive.google.com/drive/folders/17bqVpiNyxkXOFzHWqsFEq-Z-VlmARVFp?usp=drive_link).
+
+|        | pick_ and_lift | pick_up _cup | put_knife_on_ chopping_board | put_money _in_safe | push_ button | reach_ target | slide_block _to_target | stack _wine | take_money _out_safe | take_umbrella_out_ of_umbrella_stand |  Avg. |
+|:------:|:--------------:|:------------:|:----------------------------:|:------------------:|:------------:|:-------------:|:----------------------:|:-----------:|:--------------------:|:------------------------------------:|:-----:|
+| seed=0 |      95.40    |     83.80    |             86.00            |        85.40       |     98.80    |     100.00    |          93.20         |    80.20    |         71.40        |                 89.80                | 89.20 |
+
+Other models coming soon...
 
 ## BibTex
 
