@@ -77,7 +77,7 @@ pip install -e .
 
 2. Dataset Generation
 
-Option 1: Use our [pre-generated datasets](https://drive.google.com/drive/folders/1WvaopPRbQYDkIf5V_bFuetwISsu2ez9E?usp=drive_link) including the keystep trajectories and instruction embeddings for the three setups studied in our paper. Using these datasets will also help reproducibility.
+Option 1: Use our [pre-generated datasets](https://drive.google.com/drive/folders/1WvaopPRbQYDkIf5V_bFuetwISsu2ez9E?usp=drive_link) including the keystep trajectories and instruction embeddings for the three setups studied in our paper and data for the 7 real robot tasks (17 variations). Using these datasets will also help reproducibility.
 
 We recommend downloading the data using [rclone](https://rclone.org/drive/).
 
